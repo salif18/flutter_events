@@ -1,8 +1,9 @@
 import 'package:events/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 //123945
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 
@@ -11,6 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
     return MaterialApp(
       title: "Events",
       debugShowCheckedModeBanner: false,
@@ -18,7 +22,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF00232F),
       ),
       routes: {
-        "/":(context) => const Routes(),
+        "/": (context) => const Routes(),
       },
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EventDescription extends StatefulWidget {
   const EventDescription({Key? key, required this.event}) : super(key: key);
@@ -16,6 +17,30 @@ class _EventDescriptionState extends State<EventDescription> {
   void initState() {
     super.initState();
     _event = widget.event;
+  }
+
+//partager la position dans googlemaps
+   void shareEventLocation(BuildContext context) async {
+    // Partager la position via Google Maps
+    final double latitude =12.583225516627737 ; // Remplacez par la latitude réelle
+    final double longitude = -7.929662549392212; // Remplacez par la longitude réelle
+    final shareUrl = 'https://www.google.com/maps?q=$latitude,$longitude';
+
+    // Ouvrir dans une nouvelle fenêtre en utilisant url_launcher
+    if (await canLaunch(shareUrl)) {
+      await launch(shareUrl);
+    } else {
+      // Gérer l'erreur
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Impossible d 'ouvrir Google Maps.", 
+           style: GoogleFonts.roboto(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),),
+        ),
+      );
+    }
   }
 
   @override
@@ -89,13 +114,17 @@ class _EventDescriptionState extends State<EventDescription> {
                       ),
                     ),
                     Padding(
+                      
                       padding: const EdgeInsets.all(8),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.location_on, size: 30, color: Colors.white),
-                          const SizedBox(width: 10),
-                          Text(_event.eventMaps, style: GoogleFonts.roboto(fontSize: 20, color: Colors.white)),
-                        ],
+                      child: InkWell(
+                        onTap:()=> shareEventLocation(context),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.location_on, size: 30, color: Colors.white),
+                            const SizedBox(width: 10),
+                            Text(_event.eventMaps, style: GoogleFonts.roboto(fontSize: 20, color: Colors.white)),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
