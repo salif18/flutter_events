@@ -1,6 +1,7 @@
 import 'package:events/screens/home/homescreen.dart';
-import 'package:events/settings/settings.dart';
-import 'package:events/tickets/mytickets.dart';
+import 'package:events/screens/profil/profil.dart';
+import 'package:events/screens/settings/settings.dart';
+import 'package:events/screens/tickets/mytickets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -23,7 +24,7 @@ class _RoutesState extends State<Routes> {
       body:const [
         HomeScreen(), 
         MyTickets(), 
-        MySettings()
+        ProfilScreen()
       ][_index],
       bottomNavigationBar: GNav(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +38,7 @@ class _RoutesState extends State<Routes> {
         curve: Curves.easeInOut,
         tabMargin:const EdgeInsets.all(15),
         gap: 10,
-        textStyle: GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w500, color:Colors.amber),
+        textStyle: GoogleFonts.roboto(fontSize: 18, fontWeight: FontWeight.w500, color:Colors.amber),
         tabs: const [
           GButton(
             icon: Icons.home_rounded, 
@@ -52,10 +53,10 @@ class _RoutesState extends State<Routes> {
             text: "Mes tickets",           
           ),
            GButton(
-            icon: Icons.settings_outlined,
+            icon: Icons.person_outline_outlined,
             iconColor: Colors.white,
             iconSize: 28,
-            text: "Réglages",
+            text: "Profil",
           ),
         ]
         ),

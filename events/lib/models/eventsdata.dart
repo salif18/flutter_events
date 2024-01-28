@@ -8,6 +8,8 @@ class Evenements {
   String eventDesc;
   int eventPrice;
   List<Map<String, dynamic>> eventTickets;
+  double lat;
+  double long;
 
   Evenements(
     this.eventName,
@@ -19,6 +21,8 @@ class Evenements {
     this.eventDesc,
     this.eventPrice,
     this.eventTickets,
+    this.lat,
+    this.long
   );
 
   static List<Evenements> getEvents() {
@@ -36,6 +40,8 @@ class Evenements {
           {"type": "simple", "price": 1000},
           {"type": "VIP", "price": 2000},
         ],
+        12.66019163399319, 
+        -7.999864035582349
       ),
       Evenements(
         "Festival Dibi",
@@ -50,6 +56,8 @@ class Evenements {
           {"type": "simple", "price": 1000},
           {"type": "VIP", "price": 2000},
         ],
+       12.630546356921489, 
+       -8.000245707061737
       ),
       Evenements(
         "Festival Hola",
@@ -64,6 +72,8 @@ class Evenements {
           {"type": "simple", "price": 1000},
           {"type": "VIP", "price": 2000},
         ],
+         12.630546856921503, 
+         -8.00571904939113
       ),
       Evenements(
         "Parc Magic",
@@ -78,6 +88,8 @@ class Evenements {
           {"type": "simple", "price": 500},
           {"type": "VIP", "price": 1000},
         ],
+        12.66019163399319, 
+        -7.999864035582349
       ),
       Evenements(
         "Hola festival",
@@ -92,6 +104,8 @@ class Evenements {
           {"type": "simple", "price": 1000},
           {"type": "VIP", "price": 2000},
         ],
+        12.66019163399319, 
+        -7.999864035582349
       ),
       Evenements(
         "Bama-Art",
@@ -106,6 +120,8 @@ class Evenements {
           {"type": "simple", "price": 2000},
           {"type": "VIP", "price": 3000},
         ],
+       12.62614704896143, 
+       -7.990536278226512
       ),
       Evenements(
         "Concert ",
@@ -120,6 +136,8 @@ class Evenements {
           {"type": "simple", "price": 1000},
           {"type": "VIP", "price": 5000},
         ],
+        12.637410280954315, 
+        -8.023900707061545
       ),
       Evenements(
         "Concert",
@@ -134,6 +152,8 @@ class Evenements {
           {"type": "simple", "price": 1000},
           {"type": "VIP", "price": 5000},
         ],
+       12.66019163399319, 
+       -7.999864035582349
       ),
       Evenements(
         "Humour",
@@ -148,6 +168,8 @@ class Evenements {
           {"type": "simple", "price": 2000},
           {"type": "VIP", "price": 5000},
         ],
+       12.630546856921503, 
+       -8.00571904939113
       ),
     ];
   }
